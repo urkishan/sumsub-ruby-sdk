@@ -29,12 +29,12 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "http", ">= 4.0"
-  spec.add_dependency "dry-struct", "~> 1.4"
-  spec.add_dependency "mime-types", "~> 3.3"
+  spec.add_dependency "http"
+  spec.add_dependency "dry-struct"
+  spec.add_dependency "mime-types"
 
-  spec.add_development_dependency "rspec", "~> 3.10"
-  spec.add_development_dependency "pry", "~> 0.14"
-  spec.add_development_dependency "webmock", "~> 3.13"
-  spec.add_development_dependency "timecop", "~> 0.9"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "webmock"
+  spec.add_development_dependency "timecop"
 end
