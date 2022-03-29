@@ -192,6 +192,23 @@ module Sumsub
       parse_response(response)
     end
 
+    # API docs: https://developers.sumsub.com/api-reference/#changing-required-document-set-level
+    # Sumsub::Struct::Applicant can be used as body.
+    def move_to_level(applicant_id, external_user_id, level_name, lang = 'en')
+      body = Sumsub::Struct::Applicant.new(
+        externalUserId: external_user_id,
+        lang: lang
+      )
+
+      resource = "applicants/#{applicant_id}/moveToLevel?name=#{level_name}"
+      headers = build_header(resource, method: 'POST', body: body.to_json)
+
+      response = HTTP.headers(headers)
+                     .post("#{@url}/resources/#{resource}", json: body)
+
+      parse_response(response)
+    end
+
     private
 
     # More infos about the required header and the signing strategy:
