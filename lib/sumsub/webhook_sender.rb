@@ -10,6 +10,7 @@ module Sumsub
       )
       .gsub("[\n      \"", "[ \"")
       .gsub("\n    ]", " ]")
+      .gsub("\n      ", " ")
     end
   end
 end
